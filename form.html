@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FORM VALIDATION</title>
+    <style media="screen">
+      body{
+        margin: 0;
+        padding: 0;
+        background-color: red;
+      }
+      span{
+        color: red;
+      }
+      form{
+        background: yellow;
+        margin-left: 550px;
+        margin-top: 45px;
+        border: black 5px solid;
+        padding-left: 30px;
+        width: 350px;
+        padding-bottom: 30px;
+      }
+    </style>
+    <script>
+      function validatename(name)
+      {
+        if(name==="" || name===null)
+        {
+          document.getElementById("name").innerHTML="*Please Enter this field";
+          return false;
+        }
+        else if(!/^[a-zA-Z .]+$/.test(name))
+        {
+          document.getElementById("name").innerHTML="*Name should not contain number and special characters";
+          return false;
+        }
+        else{
+          document.getElementById("name").innerHTML="";
+          return true;
+        }
+      }
+      function validaterno(rno)
+      {
+        if(rno==="" || rno===null)
+        {
+          document.getElementById("rno").innerHTML="*Please Enter this field";
+          return false;
+        }
+        else if(!/^[0-9]+$/.test(rno))
+        {
+          document.getElementById("rno").innerHTML="*Enter the correct Roll no";
+          return false;
+        }
+        else{
+          document.getElementById("rno").innerHTML="";
+          return true;
+        }
+      }
+      function validateyear()
+      {
+        var year=document.f1.year.value;
+        if(year==="")
+        {
+          document.getElementById("year").innerHTML="*Please Select Year";
+          return false;
+        }
+        else{
+          document.getElementById("year").innerHTML="";
+          return true;
+        }
+      }
+      function validatephone(phone)
+      {
+        if(phone==="" || phone===null)
+        {
+          document.getElementById("phone").innerHTML="*Please Enter this field";
+          return false;
+        }
+        else if(!/^\d{10}$/.test(phone))
+        {
+          document.getElementById("phone").innerHTML="*Enter the correct Phone number";
+          return false;
+        }
+        else{
+          document.getElementById("phone").innerHTML="";
+          return true;
+        }
+      }
+      function validateemail()
+      {
+         var email=document.f1.email.value;
+         if(email==="" || email===null)
+         {
+           document.getElementById("email").innerHTML="*Please Enter this field";
+           return false;
+         }
+         else if(!/[a-b]*[0-9]*@[a-z]+[.]+[a-z.]+/.test(email))
+         {
+           document.getElementById("email").innerHTML="*Please Enter the valid Email id";
+          return false;
+         }
+         else{
+           document.getElementById("email").innerHTML="";
+           return true;
+         }
+      }
+      function validateaddress()
+      {
+        var add=document.f1.address.value;
+        if(add==="" || add===null)
+        {
+          document.getElementById("address").innerHTML="*Please Enter this field";
+          return false;
+        }
+        else{
+          document.getElementById("address").innerHTML="";
+          return true;
+        }
+      }
+      function validatecity()
+      {
+        var city=document.f1.city.value;
+        if(city==="" || city===null)
+        {
+          document.getElementById("city").innerHTML="*Please Enter this field";
+          return false;
+        }
+        else if(!/^[a-zA-Z ]+$/.test(city))
+        {
+          document.getElementById("city").innerHTML="*Enter city do contain number";
+          return false;
+        }
+        else{
+          document.getElementById("city").innerHTML="";
+          return true;
+        }
+      }
+      function validatecountry()
+      {
+        var country=document.f1.country.value;
+        if(country==="" || country===null)
+        {
+          document.getElementById("country").innerHTML="*Please Enter this field";
+          return false;
+        }
+        else if(!/^[a-zA-Z ]+$/.test(country))
+        {
+          document.getElementById("country").innerHTML="*Enter country do contain number";
+          return false;
+        }
+        else{
+          document.getElementById("country").innerHTML="";
+          return true;
+        }
+      }
+      function validatepincode()
+      {
+        var pincode=document.f1.pincode.value;
+        if(pincode==="" || pincode===null)
+        {
+          document.getElementById("pincode").innerHTML="*Please Enter this field";
+          return false;
+        }
+        else if(!/^\d{6}$/.test(pincode))
+        {
+          document.getElementById("pincode").innerHTML="*Enter the correct pincode";
+          return false;
+        }
+        else{
+          document.getElementById("pincode").innerHTML="";
+          return true;
+        }
+      }
+      function validation()
+      {
+        var name=document.f1.name.value;
+        var rno=document.f1.rno.value;
+        var year=document.f1.year.value;
+        var phone=document.f1.phone.value;
+        var email=document.f1.email.value;
+        var add=document.f1.address.value;
+        var city=document.f1.city.value;
+        var country=document.f1.country.value;
+        var pincode=document.f1.pincode.value;
+
+        if(name==="" || rno==="" || phone==="" || email==="" || add==="" || city==="" || country==="" || pincode==="" || year==="")
+        {
+           alert("Please Enter all the Fields !!!");
+          return false;
+        }
+        else{
+        alert("Form Submitted Successfully !!!");
+        return true;
+      }
+      }
+      function formreset()
+      {
+        alert("Are you sure want to reset?");
+        document.getElementsByName("name").value="";
+        document.getElementsByName("rno").value="";
+        document.getElementsByName("gen").value="";
+        document.getElementsByName("year").value="";
+        document.getElementsByName("dept").value="";
+        document.getElementsByName("s1").value="";
+        document.getElementsByName("phone").value="";
+        document.getElementsByName("email").value="";
+        document.getElementsByName("address").value="";
+        document.getElementsByName("city").value="";
+        document.getElementsByName("country").value="";
+        document.getElementsByName("pincode").value="";
+  }
+    </script>
+  </head>
+  <body>
+
+    <form name="f1" method="post" onsubmit="return validation()" onreset="return formreset()">
+      <h1 align="center">REGISTRATION</h1>
+
+     <table>
+      <tr> <td> NAME:</td> <td> <input type="text" name="name" id="n1" placeholder="Enter your name" oninput="validatename(this.value)"> </td> </tr><tr><td></td><td><span id="name"></span> </td></tr>
+      <tr><td> ROLL NO.: </td><td><input type="text" name="rno" id="n2" placeholder="Enter your roll no" oninput="validaterno(this.value)"> </td></tr><tr><td></td><td> <span id="rno"></span> </td> </tr>
+    <tr> <td> GENDER: </td>
+    <td>  <input type="radio" name="gen" value="female">Female <br>
+      <input type="radio" name="gen" value="male">Male <br>
+      <input type="radio" name="gen" value="three">Third Gender <br>
+      <input type="radio" name="gen" value="not">Prefer Not to Specify </td>
+      <td></tr><tr><td></td> <span id="gen"></span> </td>
+    </tr>
+    <tr>
+      <td>YEAR:</td>
+      <td>
+      <select class="" name="year" oninput="validateyear()">
+        <option value="">Select An Option</option>
+        <option value="first">I</option>
+        <option value="second">II</option>
+        <option value="third">III</option>
+        <option value="fourth">IV</option>
+      </select> </td>  </tr><tr><td></td><td><span id="year"></span> </td></tr>
+      <tr>
+
+      </tr>
+    <tr>
+    <td text-align="left">  DEPARTMENT: </td>
+    <td>    <input type="radio" id="d1" name="dept" value="CSE">
+      <label for="d1">CSE</label>
+      <input type="radio" id="d2" name="dept" value="IT">
+      <label for="d2">IT</label> <br>
+      <input type="radio" id="d3" name="dept" value="ECE">
+      <label for="d3">ECE</label>
+      <input type="radio" id="d4" name="dept" value="CSBS">
+      <label for="d4">CSBS</label>
+      <!-- <input type="radio" id="d5" name="dept" value="EEE">
+      <label for="d4">EEE</label> -->
+    </td></tr><tr><td></td> <td> <span id="dept"></span> </td></tr>
+    <tr>
+    <td>  SECTION: </td>
+    <td>  <input type="checkbox" name="s1" value="A">A
+      <input type="checkbox" name="s1" value="B">B
+      <input type="checkbox" name="s1" value="C">C
+      <input type="checkbox" name="s1" value="D">D
+      <input type="checkbox" name="s1" value="E">E </td>
+      <td> </tr><tr><td></td> <span id="sec"></span> </td>
+    </tr>
+    <tr>
+    <td>  MOBILE NUMBER:</td>
+    <td>  <input type="text" name="phone" value="" placeholder="Enter the Phone number" oninput="validatephone(this.value)"></td> </tr><tr><td></td><td> <span id="phone"></span> </td> </tr>
+    <tr>
+      <td>EMAIL ID:</td>
+    <td>  <input type="text" name="email" placeholder="Enter your email id" oninput="validateemail()"> </td></tr><tr><td></td> <td> <span id="email"></span> </td></tr>
+    <tr>
+    <td>  ADDRESS: </td>
+    <td>  <textarea rows="5"  name="address" placeholder="Enter the current address" oninput="validateaddress()"></textarea></td></tr><tr><td></td> <td> <span id="address"></span> </td></tr>
+    <tr>
+    <td>  CITY: </td>
+    <td>  <input type="text" name="city" value="" placeholder="Enter the current city" oninput="validatecity()"> </td></tr><tr><td></td><td> <span id="city"></span></td> </tr>
+    <tr>
+    <td>  COUNTRY:</td>
+    <td>  <input type="text" name="country" value="" placeholder="Enter the current country " oninput="return validatecountry()"> </td> </tr><tr><td></td><td> <span id="country"></span></td> </tr>
+    <tr>
+    <td>  PINCODE: </td>
+    <td>  <input type="text" name="pincode" value="" placeholder="Enter your city pincode" oninput="return validatepincode()"></td></tr><tr><td></td> <td><span id="pincode"></span></td> </tr>
+
+   <tr>
+     <td> </td><td> </td>
+   </tr>
+   <tr>
+     <td> </td><td> </td>
+   </tr>
+   <tr width:"50px">
+     <td> </td><td> </td>
+   </tr>
+    <tr> <td align="center">  <input type="submit" value="SUBMIT"></td>
+    <td align="center">  <input type="reset" value="RESET"></td></tr>
+    </form>
+    </table>
+  </body>
+</html>
